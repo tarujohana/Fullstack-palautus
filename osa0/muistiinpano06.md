@@ -1,16 +1,16 @@
 sequenceDiagram
-    participant User as Käyttäjä
-    participant Browser as Selain
-    participant Server as Palvelin
+    participant user 
+    participant browser 
+    participant server
 
-    User->>Browser: Kirjoittaa muistiinpanon ja painaa "tallenna"
-    Note over Browser: JavaScript käsittelee lomakkeen submit-tapahtuman
+    user->>browser: Kirjoittaa muistiinpanon ja painaa "tallenna"
+    Note over browser: JavaScript käsittelee lomakkeen submit-tapahtuman
 
-    Browser->>Server: HTTP POST  https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-    Note over Browser:  Lähettää muistiinpanon JSON-muodossa
+    browser->>server: HTTP POST  https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    Note over browser:  Lähettää muistiinpanon JSON-muodossa
 
-    Note over Server: Palvelin tallentaa muistiinpanon
-    Server-->>Browser: HTTP 201 Created 
+    Note over server: Palvelin tallentaa muistiinpanon
+    server-->>browser: HTTP 201 Created 
 
-    Note over Browser: JavaScript lisää uuden muistiinpanon sovelluksen tilaan
-    Note over Browser: DOM päivitetään ilman sivun uudelleenlatausta
+    Note over browser: JavaScript lisää uuden muistiinpanon sovelluksen tilaan
+    Note over browser: DOM päivitetään ilman sivun uudelleenlatausta

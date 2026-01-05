@@ -1,22 +1,22 @@
 sequenceDiagram
-    participant User as Käyttäjä
-    participant Browser as Selain
-    participant Server as Palvelin
+    participant user
+    participant browser 
+    participant server 
 
-    User->>Browser: Siirtyy osoitteeseen https://studies.cs.helsinki.fi/exampleapp/spa
+    user->>browser: Siirtyy osoitteeseen https://studies.cs.helsinki.fi/exampleapp/spa
 
-    Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
-    Server-->>Browser: HTML-dokumentti
+    browser->>server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+    server-->>browser: HTML-dokumentti
 
-    Note over Browser: HTML sisältää vain perusrakenteen ja viittaukset JS- ja CSS-tiedostoihin
+    Note over browser: HTML sisältää vain perusrakenteen ja viittaukset JS- ja CSS-tiedostoihin
 
-    Browser->>Server: HTTP GET main.css
-    Browser->>Server: HTTP GET spa.js
+    browser->>server: HTTP GET main.css
+    browser->>server: HTTP GET spa.js
 
-    Note over Browser: JavaScript-koodi suoritetaan selaimessa
+    Note over browser: JavaScript-koodi suoritetaan selaimessa
 
-    Browser->>Server: HTTP GET /exampleapp/data.json
-    Server-->>Browser: JSON-muotoinen muistiinpanodata
+    browser->>server: HTTP GET /exampleapp/data.json
+    server-->>browser: JSON-muotoinen muistiinpanodata
 
-    Note over Browser: JavaScript käsittelee datan
-    Note over Browser: Muistiinpanot renderöidään DOM-APIa käyttäen ilman sivun uudelleenlatausta
+    Note over browser: JavaScript käsittelee datan
+    Note over browser: Muistiinpanot renderöidään DOM-APIa käyttäen ilman sivun uudelleenlatausta
