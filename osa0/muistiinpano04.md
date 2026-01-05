@@ -3,7 +3,7 @@ sequenceDiagram
     participant browser
     participant server
 
-    ´´´mermaid
+    ```mermaid
 
     user->>browser: Kirjoittaa muistiinpanon ja painaa "tallenna"
     Note over browser: Lomakkeen submit-tapahtuma laukeaa
@@ -29,4 +29,4 @@ sequenceDiagram
 
     Note over browser: Tapahtumankäsittelijä renderöi muistiinpanot DOM-APIa käyttäen
 
-    ´´´
+   ```
