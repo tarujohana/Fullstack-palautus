@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     participant user 
     participant browser 
@@ -14,3 +15,4 @@ sequenceDiagram
 
     Note over browser: JavaScript lisää uuden muistiinpanon sovelluksen tilaan
     Note over browser: DOM päivitetään ilman sivun uudelleenlatausta
+```
