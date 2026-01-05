@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     participant user
     participant browser 
@@ -20,3 +21,4 @@ sequenceDiagram
 
     Note over browser: JavaScript käsittelee datan
     Note over browser: Muistiinpanot renderöidään DOM-APIa käyttäen ilman sivun uudelleenlatausta
+```
