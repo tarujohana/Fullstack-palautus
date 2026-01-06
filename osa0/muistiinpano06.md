@@ -1,3 +1,5 @@
+0.6: Uusi muistiinpano
+
 ```mermaid
 sequenceDiagram 
     participant browser 
@@ -11,6 +13,5 @@ sequenceDiagram
     Note right of browser: Palvelin tallentaa muistiinpanon
     server-->>browser: HTTP 201 Created 
 
-    Note right of browser: JavaScript lisää uuden muistiinpanon sovelluksen tilaan
-    Note right of browser: DOM päivitetään ilman sivun uudelleenlatausta
+    Note right of browser: JavaScript lisää uuden muistiinpanon sovelluksen tilaan. DOM päivitetään ilman sivun uudelleenlatausta
 ```
