@@ -12,5 +12,5 @@ sequenceDiagram
     server-->>browser: HTTP 201 Created 
 
     Note right of browser: JavaScript lisää uuden muistiinpanon sovelluksen tilaan
-    Note right browser: DOM päivitetään ilman sivun uudelleenlatausta
+    Note right of browser: DOM päivitetään ilman sivun uudelleenlatausta
 ```
