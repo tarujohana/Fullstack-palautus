@@ -1,18 +1,16 @@
 ```mermaid
-sequenceDiagram
-    participant user 
+sequenceDiagram 
     participant browser 
     participant server
 
-    user->>browser: Kirjoittaa muistiinpanon ja painaa "tallenna"
-    Note over browser: JavaScript käsittelee lomakkeen submit-tapahtuman
+    Note right of browser: JavaScript käsittelee lomakkeen submit-tapahtuman
 
     browser->>server: HTTP POST  https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-    Note over browser:  Lähettää muistiinpanon JSON-muodossa
+    Note right of browser:  Lähettää muistiinpanon JSON-muodossa
 
-    Note over server: Palvelin tallentaa muistiinpanon
+    Note right of browser: Palvelin tallentaa muistiinpanon
     server-->>browser: HTTP 201 Created 
 
-    Note over browser: JavaScript lisää uuden muistiinpanon sovelluksen tilaan
-    Note over browser: DOM päivitetään ilman sivun uudelleenlatausta
+    Note right of browser: JavaScript lisää uuden muistiinpanon sovelluksen tilaan
+    Note right browser: DOM päivitetään ilman sivun uudelleenlatausta
 ```
