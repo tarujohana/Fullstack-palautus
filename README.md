@@ -1,2 +1,2 @@
-# FullStack-palautus repositorio
-HY FullStack mooc palautusrepositorion tehtäville
+# Full Stack open kurssin palautus repositorio
+ Palautusrepositorio kurssin: http://fullstackopen.com/ tehtäville
