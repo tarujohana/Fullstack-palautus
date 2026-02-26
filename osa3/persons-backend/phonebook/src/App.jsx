@@ -69,6 +69,10 @@ const addperson = event => {
       setNewName('')
       setNewNumber('')
     })
+    .catch(error => {
+      const errorMessage = error.response?.data?.error || 'An error occurred'
+      showNotification(errorMessage, 'error')
+    })
 }
 
   const personsToShow = filter ===''

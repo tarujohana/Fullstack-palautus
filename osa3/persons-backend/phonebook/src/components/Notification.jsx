@@ -3,7 +3,7 @@ const Notification = ({ message }) => {
     return null
   }
 
-  const content = message.content ?? message.message
+  const content = message.message
   const type = message.type || 'success'
 
   return (
