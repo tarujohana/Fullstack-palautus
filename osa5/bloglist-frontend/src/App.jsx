@@ -102,15 +102,56 @@ const App = () => {
   const addBlog = async (blogObject) => {
     try{
       const newBlog = await blogService.create(blogObject)
+      newBlog.user = user 
       setBlogs(blogs.concat(newBlog))
-      showNotification(`a new blog ${newBlog.title} by ${newBlog.author} added`) 
+      showNotification(`a new blog ${newBlog.title} by ${newBlog.author} added`)
+      blogFormRef.current.toggleVisibility() 
     } catch (error) {
       showNotification('Error adding blog', 'error')
     }  
   }
 
+const likeBlog = async (blog) => {
+  try {
+    const blogId = blog.id || blog._id
+    const updatedBlog = {
+      user: blog.user.id || blog.user._id,
+      likes: blog.likes + 1,
+      author: blog.author,
+      title: blog.title,
+      url: blog.url
+    }
 
- const userBlogs = blogs.filter(blog => blog.user.username === user.username)
+    const returnedBlog = await blogService.update(blogId, updatedBlog)
+    if (!returnedBlog.user || typeof returnedBlog.user === 'string') {
+      returnedBlog.user = blog.user
+    }
+
+    setBlogs(blogs.map(b => {
+      const bId = b.id || b._id
+      return bId === blogId ? returnedBlog : b
+    }))
+  } catch (error) {
+    console.error('Error liking blog:', error)
+  }
+}
+
+const deleteBlog = async (blog) => {
+  window.confirm(`Delete ${blog.title} by ${blog.author}?`)
+  try {
+    const blogId = blog.id || blog._id
+    await blogService.remove(blogId)
+    setBlogs(blogs.filter(b => (b.id || b._id) !== blogId))
+    showNotification(`Deleted ${blog.title} by ${blog.author}`)
+  } catch (error) {
+    console.log('Error deleting blog:', error)
+    showNotification('Error deleting blog', 'error')
+  }
+}
+
+ const userBlogs = blogs
+ //.filter(blog => blog.user &&blog.user.username === user.username)
+ .sort((a, b) => b.likes - a.likes)
 
   return (
     <div>
@@ -121,7 +162,7 @@ const App = () => {
         <button onClick={handleLogout}>logout</button>  
         </p>
       {userBlogs.map(blog =>
-        <Blog key={blog.id} blog={blog}/>
+        <Blog key={blog.id} blog={blog} likeBlog={likeBlog} deleteBlog={deleteBlog} user = {user}/>
       )}
       <h2> Create new </h2>
       <Togglable buttonLabel="new blog" ref={blogFormRef}>
