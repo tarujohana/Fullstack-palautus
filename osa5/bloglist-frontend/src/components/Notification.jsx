@@ -5,7 +5,7 @@ const Notification = ({ notification }) => {
 
   const style = {
     color: notification.type === 'error' ? 'red' : 'green',
-    border: '2px solid', 
+    border: '2px solid',
     padding: 10,
     marginBottom: 10,
     fontSize: 20,
